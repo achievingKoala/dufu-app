@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import QuizData from './QuizData';
+import treeData from './TreeData';
+import Tree from './Tree';
 
 const App = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -101,6 +103,7 @@ const aDiv = <div className='answer-section'>
 
   return (
     <div className='app'>
+      <Tree data = {treeData} ></Tree>
       <h3>
       {QuizData.title}
       </h3>
