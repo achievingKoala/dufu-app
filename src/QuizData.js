@@ -1,4 +1,4 @@
-const QuizData2 = [
+const qiuxing3 = [
   {
     questionText: '闻道长安似弈棋',
     correctAnswer: '百年世事不胜悲',
@@ -91,7 +91,7 @@ const QuizData2 = [
   },
   ];
 
-const PoemData = [
+const qiuxing2 = [
   {
     questionText: '千家山郭静朝晖',
     correctAnswer: '日日江楼坐翠微',
@@ -278,19 +278,35 @@ const PoemData3 = [
   },
 ]
 
+const QuizDataX = {
+  title : '哀江头',
+  sentences : PoemData2
+}
 
-const QuizData = {
-  // title : '哀江头',
+let QuizData = {
   title : '兵车行',
-  // title : '秋兴八首三',
-  // title : '秋兴八首四',
   sentences : PoemData3
+}
+
+const poemDic = {
+  '兵车行': QuizData,
+  '哀江头' : QuizDataX,
+  '秋兴八首其三': {
+    title : '秋兴八首其三',
+    sentences : qiuxing3
+  },
+  '秋兴八首其二': {
+    title : '秋兴八首其二',
+    sentences : qiuxing2
+  },
 }
 
 
 
 
 
-export default QuizData;
+
+export  {QuizData, poemDic};
+
 
 
