@@ -22,6 +22,7 @@ const treeData = [
     title: '困守长安时期',
     children: [
       { key: 9, title: '兵车行' },
+      { key: 12, title: '春日忆李白' },
     ],
   },
   {
@@ -31,6 +32,7 @@ const treeData = [
       { key: 7, title: '秋兴八首其三' },
       { key: 10, title: '秋兴八首其二' },
       { key: 8, title: '哀江头' },
+      { key: 11, title: '丹青引赠曹将军霸' },
     ],
   },
 ];

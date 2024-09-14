@@ -4,7 +4,7 @@ import { Button, Tree, Layout } from 'antd';
 
 // import 'antd/dist/antd.css';
 
-import {QuizData, poemDic} from './QuizData';
+import { QuizData, poemDic } from './QuizData';
 
 import treeData from './TreeData';
 import Sider from 'antd/es/layout/Sider';
@@ -104,7 +104,7 @@ const App = () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [currentQuestion]);
-  
+
   const onSelect = (selectedKeys, { node }) => {
     if (node.title in poemDic) {
       console.log('Selected node title:', node.title);  // 打印节点的 title
@@ -115,51 +115,49 @@ const App = () => {
       setShowCorrectAnswer(false); // Hide correct answer
     }
   };
-  
+
   return (
     <div className='app'>
       <Layout style={{ minHeight: '100vh' }}>
         <Sider style={{ background: '#fff' }}>
           <Tree treeData={treeData}
-          onSelect = {onSelect} ></Tree>
+            onSelect={onSelect} ></Tree>
         </Sider>
         <Content style={{ padding: '20px' }}>
           <h3>
             {quizData.title}
           </h3>
-          
-            <>
-              <div className='question-count'>
-                <span>Question {currentQuestion + 1}</span>/{quizData.sentences.length}
-              </div>
-              <div className='question-answer-container'>
+          <>
+            <div className='question-count'>
+              <span>Question {currentQuestion + 1}</span>/{quizData.sentences.length}
+              {/* <Button>随机上下句</Button> */}
+            </div>
+            <div className='question-answer-container'>
+              {answerUp === 1 ? (
+                <>
+                  {qDiv}
+                  {aDiv}
+                </>
+              ) : (
+                <>
+                  {aDiv}
+                  {qDiv2}
+                </>
+              )}
 
-                {answerUp === 1 ? (
-                  <>
-                    {qDiv}
-                    {aDiv}
-                  </>
-                ) : (
-                  <>
-                    {aDiv}
-                    {qDiv2}
-                  </>
-                )}
+              <div className='feedback'>{feedback}</div>
+              {showCorrectAnswer && (
+                <div className='correct-answer'>
+                  Correct Answer: {quizData.sentences[currentQuestion].questionText},  {quizData.sentences[currentQuestion].correctAnswer}
+                </div>
+              )}
+            </div>
+          </>
 
-                <div className='feedback'>{feedback}</div>
-                {showCorrectAnswer && (
-                  <div className='correct-answer'>
-                    Correct Answer: {quizData.sentences[currentQuestion].questionText},  {quizData.sentences[currentQuestion].correctAnswer}
-                  </div>
-                )}
-
-              </div>
-            </>
-          
 
         </Content>
       </Layout>
-      
+
 
 
     </div>

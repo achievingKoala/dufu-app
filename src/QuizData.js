@@ -16,81 +16,129 @@ const qiuxing3 = [
     correctAnswer: '故国平居有所思',
   },]
 
-  const a =  [{
-    questionText: '将军魏武之子孙',
-    correctAnswer: '于今为庶为清门',
-  },
-  {
-    questionText: '英雄割据虽已矣',
-    correctAnswer: '文采风流今尚存',
-  },
-  {
-    questionText: '学书初学卫夫人',
-    correctAnswer: '但恨无过王右军',
-  },
-  {
-    questionText: '丹青不知老将至',
-    correctAnswer: '富贵于我如浮云',
-  },
-  {
-    questionText: '开元之中常引见',
-    correctAnswer: '承恩数上南薰殿',
-  },
-  {
-    questionText: '凌烟功臣少颜色',
-    correctAnswer: '将军下笔开生面',
-  },
-  {
-    questionText: '良相头上进贤冠',
-    correctAnswer: '猛将腰间大羽箭',
-  },
-  {
-    questionText: '褒公鄂公毛发动',
-    correctAnswer: '英姿飒爽来酣战',
-  },
-  {
-    questionText: '先帝御马玉花骢',
-    correctAnswer: '画工如山貌不同',
-  },
-  {
-    questionText: '是日牵来赤墀下',
-    correctAnswer: '迥立阊阖生长风',
-  },
-  
-  {
-    questionText: '诏谓将军拂绢素',
-    correctAnswer: '意匠惨淡经营中',
-  },
-  {
-    questionText: '斯须九重真龙出',
-    correctAnswer: '一洗万古凡马空',
-  },
+const caoba = [{
+  questionText: '将军魏武之子孙',
+  correctAnswer: '于今为庶为清门',
+},
+{
+  questionText: '英雄割据虽已矣',
+  correctAnswer: '文采风流今尚存',
+},
+{
+  questionText: '学书初学卫夫人',
+  correctAnswer: '但恨无过王右军',
+},
+{
+  questionText: '丹青不知老将至',
+  correctAnswer: '富贵于我如浮云',
+},
+{
+  questionText: '开元之中常引见',
+  correctAnswer: '承恩数上南薰殿',
+},
+{
+  questionText: '凌烟功臣少颜色',
+  correctAnswer: '将军下笔开生面',
+},
+{
+  questionText: '良相头上进贤冠',
+  correctAnswer: '猛将腰间大羽箭',
+},
+{
+  questionText: '褒公鄂公毛发动',
+  correctAnswer: '英姿飒爽来酣战',
+},
+{
+  questionText: '先帝御马玉花骢',
+  correctAnswer: '画工如山貌不同',
+},
+{
+  questionText: '是日牵来赤墀下',
+  correctAnswer: '迥立阊阖生长风',
+},
+
+{
+  questionText: '诏谓将军拂绢素',
+  correctAnswer: '意匠惨淡经营中',
+},
+{
+  questionText: '斯须九重真龙出',
+  correctAnswer: '一洗万古凡马空',
+},
+{
+  //   玉花却在御榻上，榻上庭前屹相向
+  questionText: '玉花却在御榻上',
+  correctAnswer: '榻上庭前屹相向',
+},
+{
   // 至尊含笑催赐金，圉人太仆皆惆怅
-  // 弟子韩幹早入室，亦能画马穷殊相
-  // 幹惟画肉不画骨，忍使骅骝气凋丧？
+  questionText: '至尊含笑催赐金',
+  correctAnswer: '圉人太仆皆惆怅',
+},
+// 弟子韩幹早入室，亦能画马穷殊相
+{
+  questionText: '弟子韩幹早入室',
+  correctAnswer: '亦能画马穷殊相',
+},
+// 幹惟画肉不画骨，忍使骅骝气凋丧？
+{
+  questionText: '幹惟画肉不画骨',
+  correctAnswer: '忍使骅骝气凋丧',
+},
+// 将军善画盖有神，必逢佳士亦写真
+{
+  questionText: '将军善画盖有神',
+  correctAnswer: '必逢佳士亦写真',
+},
+// 即今漂泊干戈际， 屡貌寻常行路人
+{
+  questionText: '即今漂泊干戈际',
+  correctAnswer: '屡貌寻常行路人',
+},
+// 穷途反遭俗眼白，世上未有如公贫
+{
+  questionText: '穷途反遭俗眼白',
+  correctAnswer: '世上未有如公贫',
+},
+// 但看古来盛名下 终日坎壈缠其身
+{
+  questionText: '但看古来盛名下',
+  correctAnswer: '终日坎壈缠其身',
+},
+];
+// 渭北春天树，江东日暮云
+const libai1 = [
+  // 白也诗无敌：飘然思不群
   {
-    //   玉花却在御榻上，榻上庭前屹相向
-    questionText: '玉花却在御榻上',
-    correctAnswer: '榻上庭前屹相向',
+    questionText: '白也诗无敌',
+    correctAnswer: '飘然思不群',
+    // 清新庾开府，俊逸鲍参军
   },
   {
-    questionText: '天下何曾有山水',
-    correctAnswer: '人间不解重骅骝',
-  },
-  {
-    questionText: '斯须九重真龙出',
-    correctAnswer: '一洗万古凡马空',
+    questionText: '清新庾开府',
+    correctAnswer: '俊逸鲍参军',
   },
   {
     questionText: '渭北春天树',
     correctAnswer: '江东日暮云',
   },
   {
-    questionText: '白也诗无敌',
-    correctAnswer: '飘然思不群',
+    questionText: '何时一樽酒',
+    correctAnswer: '重与细论文',
   },
-  ];
+  // 何时一樽酒，重与细论文
+]
 
+const cunmo = {
+  title: '存殁口号',
+  sentence: [
+    {
+      questionText: '天下何曾有山水',
+      correctAnswer: '人间不解重骅骝',
+    },
+
+  ]
+}
 const qiuxing2 = [
   {
     questionText: '千家山郭静朝晖',
@@ -133,57 +181,57 @@ const PoemData4 = [
 ]
 
 const PoemData2 = [
-{
-  questionText: '少陵野老吞声哭',
-  correctAnswer: '春日潜行曲江曲',
-},
-{
-  questionText: '江头宫殿锁千门',
-  correctAnswer: '细柳新蒲为谁绿',
-},
-// 
-// 忆昔霓旌下南苑
-// 苑中万物生颜色
-{
-  questionText: '忆昔霓旌下南苑',
-  correctAnswer: '苑中万物生颜色',
-},
-// 昭阳殿里第一人
-// 同辇随君侍君侧
-{
-  questionText: '昭阳殿里第一人',
-  correctAnswer: '同辇随君侍君侧',
-},
-// 辇前才人带弓箭
-// 白马嚼啮黄金勒
-{
-  questionText: '辇前才人带弓箭',
-  correctAnswer: '白马嚼啮黄金勒',
-},
-// 翻身向天仰射云
-// 一笑正坠双飞翼
-{
-  questionText: '翻身向天仰射云',
-  correctAnswer: '一笑正坠双飞翼',
-},
-// 明眸皓齿今何在
-// 血污游魂归不得
-{
-  questionText: '明眸皓齿今何在',
-  correctAnswer: '血污游魂归不得',
-},
-// 清渭东流剑阁深
-// 去住彼此无消息
-{
-  questionText: '清渭东流剑阁深',
-  correctAnswer: '去住彼此无消息',
-},
-// 人生有情泪沾臆
-// 江草江花岂终极
-{
-  questionText: '人生有情泪沾臆',
-  correctAnswer: '江草江花岂终极',
-},
+  {
+    questionText: '少陵野老吞声哭',
+    correctAnswer: '春日潜行曲江曲',
+  },
+  {
+    questionText: '江头宫殿锁千门',
+    correctAnswer: '细柳新蒲为谁绿',
+  },
+  // 
+  // 忆昔霓旌下南苑
+  // 苑中万物生颜色
+  {
+    questionText: '忆昔霓旌下南苑',
+    correctAnswer: '苑中万物生颜色',
+  },
+  // 昭阳殿里第一人
+  // 同辇随君侍君侧
+  {
+    questionText: '昭阳殿里第一人',
+    correctAnswer: '同辇随君侍君侧',
+  },
+  // 辇前才人带弓箭
+  // 白马嚼啮黄金勒
+  {
+    questionText: '辇前才人带弓箭',
+    correctAnswer: '白马嚼啮黄金勒',
+  },
+  // 翻身向天仰射云
+  // 一笑正坠双飞翼
+  {
+    questionText: '翻身向天仰射云',
+    correctAnswer: '一笑正坠双飞翼',
+  },
+  // 明眸皓齿今何在
+  // 血污游魂归不得
+  {
+    questionText: '明眸皓齿今何在',
+    correctAnswer: '血污游魂归不得',
+  },
+  // 清渭东流剑阁深
+  // 去住彼此无消息
+  {
+    questionText: '清渭东流剑阁深',
+    correctAnswer: '去住彼此无消息',
+  },
+  // 人生有情泪沾臆
+  // 江草江花岂终极
+  {
+    questionText: '人生有情泪沾臆',
+    correctAnswer: '江草江花岂终极',
+  },
   {
     questionText: '欲往城南望城北',
     correctAnswer: '黄昏胡骑尘满城',
@@ -240,7 +288,7 @@ const PoemData3 = [
     questionText: '况复秦兵耐苦战',
     correctAnswer: '被驱不异犬与鸡',
   },
-  
+
   // 长者虽有问，役夫敢申恨
   {
     questionText: '长者虽有问',
@@ -279,25 +327,33 @@ const PoemData3 = [
 ]
 
 const QuizDataX = {
-  title : '哀江头',
-  sentences : PoemData2
+  title: '哀江头',
+  sentences: PoemData2
 }
 
 let QuizData = {
-  title : '兵车行',
-  sentences : PoemData3
+  title: '兵车行',
+  sentences: PoemData3
 }
 
 const poemDic = {
   '兵车行': QuizData,
-  '哀江头' : QuizDataX,
+  '哀江头': QuizDataX,
+  '春日忆李白': {
+    title: '春日忆李白',
+    sentences: libai1
+  },
   '秋兴八首其三': {
-    title : '秋兴八首其三',
-    sentences : qiuxing3
+    title: '秋兴八首其三',
+    sentences: qiuxing3
   },
   '秋兴八首其二': {
-    title : '秋兴八首其二',
-    sentences : qiuxing2
+    title: '秋兴八首其二',
+    sentences: qiuxing2
+  },
+  '丹青引赠曹将军霸': {
+    title: '丹青引赠曹将军霸',
+    sentences: caoba
   },
 }
 
@@ -306,7 +362,7 @@ const poemDic = {
 
 
 
-export  {QuizData, poemDic};
+export { QuizData, poemDic };
 
 
 
