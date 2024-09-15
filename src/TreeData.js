@@ -29,10 +29,12 @@ const treeData = [
     key: 6,
     title: '漂泊西南时期',
     children: [
-      { key: 7, title: '秋兴八首其三' },
       { key: 10, title: '秋兴八首其二' },
+      { key: 7, title: '秋兴八首其三' },
+      { key: 13, title: '秋兴八首其四' },
       { key: 8, title: '哀江头' },
       { key: 11, title: '丹青引赠曹将军霸' },
+      { key: 14, title: '存殁' },
     ],
   },
 ];

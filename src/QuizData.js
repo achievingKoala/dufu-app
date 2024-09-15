@@ -1,4 +1,4 @@
-const qiuxing3 = [
+const qiuxing4 = [
   {
     questionText: '闻道长安似弈棋',
     correctAnswer: '百年世事不胜悲',
@@ -15,6 +15,25 @@ const qiuxing3 = [
     questionText: '鱼龙寂寞秋江冷',
     correctAnswer: '故国平居有所思',
   },]
+
+const qiuxing2 = [
+  {
+    questionText: '夔府孤城落日斜',
+    correctAnswer: '每依北斗望京华',
+  },
+  {
+    questionText: '听猿实下三声泪',
+    correctAnswer: '奉使虚随八月槎',
+  },
+  {
+    questionText: '画省香炉违伏枕',
+    correctAnswer: '山楼粉堞隐悲笳',
+  },
+  {
+    questionText: '请看石上藤萝月',
+    correctAnswer: '已映洲前芦荻花',
+  }
+];
 
 const caoba = [{
   questionText: '将军魏武之子孙',
@@ -106,6 +125,7 @@ const caoba = [{
   correctAnswer: '终日坎壈缠其身',
 },
 ];
+
 // 渭北春天树，江东日暮云
 const libai1 = [
   // 白也诗无敌：飘然思不群
@@ -128,18 +148,19 @@ const libai1 = [
   },
   // 何时一樽酒，重与细论文
 ]
+const cunmo = [
+  {
+    questionText: '郑公粉绘随长夜',
+    correctAnswer: '曹霸丹青已白头',
+  },
+  {
+    questionText: '天下何曾有山水',
+    correctAnswer: '人间不解重骅骝',
+  },
+];
 
-const cunmo = {
-  title: '存殁口号',
-  sentence: [
-    {
-      questionText: '天下何曾有山水',
-      correctAnswer: '人间不解重骅骝',
-    },
 
-  ]
-}
-const qiuxing2 = [
+const qiuxing3 = [
   {
     questionText: '千家山郭静朝晖',
     correctAnswer: '日日江楼坐翠微',
@@ -157,28 +178,7 @@ const qiuxing2 = [
     correctAnswer: '五陵衣马自轻肥',
   }
 ]
-const PoemData4 = [
-  {
-    //   夔府孤城落日斜，每依北斗望京华
-    questionText: '夔府孤城落日斜',
-    correctAnswer: '每依北斗望京华',
-  },
-  // 听猿实下三声泪，奉使虚随八月槎
-  // 画省香炉违伏枕，山楼粉堞隐悲笳
-  // 请看石上藤萝月，已映洲前芦荻花
-  {
-    questionText: '听猿实下三声泪',
-    correctAnswer: '奉使虚随八月槎',
-  },
-  {
-    questionText: '匡衡抗疏功名薄',
-    correctAnswer: '刘向传经心事违',
-  },
-  {
-    questionText: '同学少年多不贱',
-    correctAnswer: '五陵衣马自轻肥',
-  }
-]
+
 
 const PoemData2 = [
   {
@@ -237,6 +237,7 @@ const PoemData2 = [
     correctAnswer: '黄昏胡骑尘满城',
   },
 ]
+
 const PoemData3 = [
   //   车辚辚，马萧萧 行人弓箭各在腰
   {
@@ -326,43 +327,23 @@ const PoemData3 = [
   },
 ]
 
-const QuizDataX = {
-  title: '哀江头',
-  sentences: PoemData2
-}
-
 let QuizData = {
   title: '兵车行',
   sentences: PoemData3
 }
 
 const poemDic = {
-  '兵车行': QuizData,
-  '哀江头': QuizDataX,
-  '春日忆李白': {
-    title: '春日忆李白',
-    sentences: libai1
-  },
-  '秋兴八首其三': {
-    title: '秋兴八首其三',
-    sentences: qiuxing3
-  },
-  '秋兴八首其二': {
-    title: '秋兴八首其二',
-    sentences: qiuxing2
-  },
-  '丹青引赠曹将军霸': {
-    title: '丹青引赠曹将军霸',
-    sentences: caoba
-  },
+  '兵车行': PoemData3,
+  '存殁': cunmo,
+  '哀江头': PoemData2,
+  '春日忆李白': libai1,
+  '秋兴八首其二': qiuxing2,
+  '秋兴八首其三': qiuxing3,
+  '秋兴八首其四': qiuxing4,
+  '丹青引赠曹将军霸': caoba
 }
 
-
-
-
-
-
-export { QuizData, poemDic };
+export { QuizData, poemDic, PoemData3 };
 
 
 
