@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Button, Tree, Layout, Tooltip, Progress } from 'antd';
+import { StarOutlined, StarFilled, HeartOutlined, HeartFilled } from '@ant-design/icons';
 
 // import 'antd/dist/antd.css';
 
@@ -20,7 +21,8 @@ const App = () => {
   const [feedback, setFeedback] = useState('');
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false); // 用于显示正确答案
   const [quizData, setQuizData] = useState(PoemData3);
-  const [currentTitle, setCurrentTitle] = useState('');
+  const [currentTitle, setCurrentTitle] = useState('兵车行');
+  const [collectedSentences, setCollectedSentences] = useState([]);
 
   const logRandomBinary = () => {
     if (!isRandom) {
@@ -100,10 +102,6 @@ const App = () => {
     };
 
     window.addEventListener('keydown', handleKeyDown);
-
-
-
-
     // 清除事件监听
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
@@ -147,16 +145,39 @@ const App = () => {
     setShowCorrectAnswer(!showCorrectAnswer);
   };
 
+  const toggleCollectSentence = () => {
+    const currentSentence = `${quizData[currentQuestion].questionText}, ${quizData[currentQuestion].correctAnswer}`;
+    const updatedCollectedSentences = [...collectedSentences];
+    
+    const index = updatedCollectedSentences.indexOf(currentSentence);
+    if (index > -1) {
+      updatedCollectedSentences.splice(index, 1);
+    } else {
+      updatedCollectedSentences.push(currentSentence);
+    }
+    
+    setCollectedSentences(updatedCollectedSentences);
+    localStorage.setItem('collectedSentences', JSON.stringify(updatedCollectedSentences));
+  };
+
+  const isSentenceCollected = () => {
+    const currentSentence = `${quizData[currentQuestion].questionText}, ${quizData[currentQuestion].correctAnswer}`;
+    return collectedSentences.includes(currentSentence);
+  };
+
   return (
     <div className='app'>
       <Layout style={{ minHeight: '100vh' }}>
         <Sider style={{ background: '#fff' }}>
           <Tree 
           defaultExpandAll = {true}
+          defaultSelectedKeys = {[9]}
           treeData={treeData} onSelect={onSelect} />
         </Sider>
         <Content style={{ padding: '20px' }}>
-          <h3>{currentTitle}</h3>
+          <h3>
+            {currentTitle}
+          </h3>
           <>
           <h3>
             {currentQuestion + 1}  / { quizData.length}
@@ -175,6 +196,13 @@ const App = () => {
               <Button onClick={toggleShowAnswer} style={{ margin: '0 10px' }}>
                 {showCorrectAnswer ? 'Hide Answer' : 'Show Answer'}
               </Button>
+            </Tooltip>
+            <Tooltip title={isSentenceCollected() ? "Remove sentence from collection" : "Add sentence to collection"}>
+              <Button 
+                icon={isSentenceCollected() ? <HeartFilled /> : <HeartOutlined />} 
+                onClick={toggleCollectSentence} 
+                style={{ marginLeft: '10px' }}
+              />
             </Tooltip>
             <hr></hr>
             <div className='question-answer-container'>
