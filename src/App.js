@@ -79,7 +79,8 @@ const App = () => {
     const handleKeyDown = (event) => {
       if (event.key === '=') {
         event.preventDefault(); // 阻止默认行为
-        setShowCorrectAnswer(true); // 当按下 '=' 键时显示正确答案
+        setShowCorrectAnswer(prevState => !prevState);
+        // console.log(showCorrectAnswer)
       }
       if (event.key === ']') {
         logRandomBinary()
@@ -142,11 +143,17 @@ const App = () => {
     setCurrentQuestion(currentQuestion === quizData.length - 1 ? 0 : currentQuestion + 1);
   };
 
+  const toggleShowAnswer = () => {
+    setShowCorrectAnswer(!showCorrectAnswer);
+  };
+
   return (
     <div className='app'>
       <Layout style={{ minHeight: '100vh' }}>
         <Sider style={{ background: '#fff' }}>
-          <Tree treeData={treeData} onSelect={onSelect} />
+          <Tree 
+          defaultExpandAll = {true}
+          treeData={treeData} onSelect={onSelect} />
         </Sider>
         <Content style={{ padding: '20px' }}>
           <h3>{currentTitle}</h3>
@@ -155,14 +162,19 @@ const App = () => {
             {currentQuestion + 1}  / { quizData.length}
           </h3>
             
-            <Button onClick={toggleRandom}>
-              {!isRandom ? '只考下半句' : '随机'}
+            <Button onClick={toggleRandom} style={{ margin: '0 10px' }}>
+              {!isRandom ? '只考下半句' : '随机上下句'}
             </Button>
-            <Tooltip title="Shortcut: [">
-              <Button onClick={handleLastSentence}>Last</Button>
+            <Tooltip title="Shortcut: [" >
+              <Button onClick={handleLastSentence} style={{ margin: '0 10px' }}>上一句</Button>
             </Tooltip>
             <Tooltip title="Shortcut: ]">
-              <Button onClick={handleNextSentence}>Next</Button>
+              <Button onClick={handleNextSentence} style={{ margin: '0 10px' }} >下一句</Button>
+            </Tooltip>
+            <Tooltip title="Shortcut: =">
+              <Button onClick={toggleShowAnswer} style={{ margin: '0 10px' }}>
+                {showCorrectAnswer ? 'Hide Answer' : 'Show Answer'}
+              </Button>
             </Tooltip>
             <hr></hr>
             <div className='question-answer-container'>

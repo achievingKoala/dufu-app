@@ -1,3 +1,21 @@
+const qiuxing5 = [
+  {
+    questionText: '瞿塘峡口曲江头',
+    correctAnswer: '万里风烟接素秋',
+  },
+  {
+    questionText: '花萼夹城通御气',
+    correctAnswer: '芙蓉小苑入边愁',
+  },
+  {
+    questionText: '珠帘绣柱围黄鹄',
+    correctAnswer: '锦缆牙樯起白鸥',
+  },
+  {
+    questionText: '回首可怜歌舞地',
+    correctAnswer: '秦中自古帝王州',
+  },
+];
 const qiuxing4 = [
   {
     questionText: '闻道长安似弈棋',
@@ -148,6 +166,26 @@ const libai1 = [
   },
   // 何时一樽酒，重与细论文
 ]
+
+const yanzhou = [
+  {
+    questionText: '东郡趋庭日',
+    correctAnswer: '南楼纵目初',
+  },
+  {
+    questionText: '浮云连海岱',
+    correctAnswer: '平野入青徐',
+  },
+  {
+    questionText: '孤嶂秦碑在',
+    correctAnswer: '荒城鲁殿馀',
+  },
+  {
+    questionText: '从来多古意',
+    correctAnswer: '临眺独踌躇',
+  },
+];
+
 const cunmo = [
   {
     questionText: '郑公粉绘随长夜',
@@ -332,15 +370,112 @@ let QuizData = {
   sentences: PoemData3
 }
 
+const yeyan = [
+  {
+    questionText: '风林纤月落',
+    correctAnswer: '衣露净琴张',
+  },
+  {
+    questionText: '暗水流花径',
+    correctAnswer: '春星带草堂',
+  },
+  {
+    questionText: '检书烧烛短',
+    correctAnswer: '看剑引杯长',
+  },
+  {
+    questionText: '诗罢闻吴咏',
+    correctAnswer: '扁舟意不忘',
+  }
+]
+const lirenxing = [
+  {
+    questionText: '三月三日天气新',
+    correctAnswer: '长安水边多丽人',
+  },
+  {
+    questionText: '态浓意远淑且真',
+    correctAnswer: '肌理细腻骨肉匀',
+  },
+  {
+    questionText: '绣罗衣裳照暮春',
+    correctAnswer: '蹙金孔雀银麒麟',
+  },
+  {
+    questionText: '头上何所有',
+    correctAnswer: '翠为㔩叶垂鬓唇',
+  },
+  {
+    questionText: '背后何所见',
+    correctAnswer: '珠压腰衱稳称身',
+  },
+  {
+    questionText: '就中云幕椒房亲',
+    correctAnswer: '赐名大国虢与秦',
+  },
+  {
+    questionText: '紫驼之峰出翠釜',
+    correctAnswer: '水精之盘行素鳞',
+  },
+  {
+    questionText: '犀箸厌饫久未下',
+    correctAnswer: '鸾刀缕切空纷纶',
+  },
+  {
+    questionText: '黄门飞鞚不动尘',
+    correctAnswer: '御厨络绎送八珍',
+  },
+  {
+    questionText: '箫鼓哀吟感鬼神',
+    correctAnswer: '宾从杂遝实要津',
+  },
+  {
+    questionText: '后来鞍马何逡巡',
+    correctAnswer: '当轩下马入锦茵',
+  },
+  {
+    questionText: '杨花雪落覆白蘋',
+    correctAnswer: '青鸟飞去衔红巾',
+  },
+  {
+    questionText: '炙手可热势绝伦',
+    correctAnswer: '慎莫近前丞相嗔',
+  }
+]
+
+
+const yueye = [
+  {
+    questionText: '今夜鄜州月',
+    correctAnswer: '闺中只独看',
+  },
+  {
+    questionText: '遥怜小儿女',
+    correctAnswer: '未解忆长安',
+  },
+  {
+    questionText: '香雾云鬟湿',
+    correctAnswer: '清辉玉臂寒',
+  },
+  {
+    questionText: '何时倚虚幌',
+    correctAnswer: '双照泪痕干',
+  }
+]
+
 const poemDic = {
   '兵车行': PoemData3,
+  '丽人行': lirenxing,
   '存殁': cunmo,
+  '月夜': yueye,
   '哀江头': PoemData2,
   '春日忆李白': libai1,
   '秋兴八首其二': qiuxing2,
   '秋兴八首其三': qiuxing3,
   '秋兴八首其四': qiuxing4,
-  '丹青引赠曹将军霸': caoba
+  '丹青引赠曹将军霸': caoba,
+  '夜宴左氏庄': yeyan,
+  '登兖州城楼': yanzhou,
 }
 
 export { QuizData, poemDic, PoemData3 };
