@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './App.css';
 import { Button, Tree, Layout, Tooltip, Progress } from 'antd';
 import { StarOutlined, StarFilled, HeartOutlined, HeartFilled } from '@ant-design/icons';
@@ -15,14 +15,57 @@ const App = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answerUp, setAnswerUp] = useState(1);
   const [isRandom, setIsRandom] = useState(false);
-  const [score, setScore] = useState(0);
-  const [showScore, setShowScore] = useState(false);
   const [userAnswer, setUserAnswer] = useState('');
   const [feedback, setFeedback] = useState('');
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false); // 用于显示正确答案
   const [quizData, setQuizData] = useState(PoemData3);
   const [currentTitle, setCurrentTitle] = useState('兵车行');
   const [collectedSentences, setCollectedSentences] = useState([]);
+
+  const collectedTreeData = useMemo(() => {
+    const collected = {
+      title: '收藏',
+      key: 'collected',
+      children: []
+    };
+
+    const titleMap = {};
+
+    collectedSentences.forEach((sentence, index) => {
+      if (!titleMap[sentence.title]) {
+        titleMap[sentence.title] = {
+          title: sentence.title,
+          key: `collected-${sentence.title}`,
+          children: []
+        };
+        collected.children.push(titleMap[sentence.title]);
+      }
+
+      titleMap[sentence.title].children.push({
+        title: sentence.content,
+        key: `collected-sentence-${index}`,
+        isLeaf: true
+      });
+    });
+
+    return [collected];
+  }, [collectedSentences]);
+
+  const combinedTreeData = useMemo(() => {
+    return [...treeData, ...collectedTreeData];
+  }, [treeData, collectedTreeData]);
+
+  useEffect(() => {
+    const storedSentences = localStorage.getItem('collectedSentences');
+    if (storedSentences) {
+      setCollectedSentences(JSON.parse(storedSentences));
+    }
+  }, []);
+
+  // Add this useEffect hook at the beginning of the component
+  useEffect(() => {
+    console.log('treeData:', treeData);
+  }, []);
 
   const logRandomBinary = () => {
     if (!isRandom) {
@@ -74,6 +117,22 @@ const App = () => {
       placeholder='Enter your answer'
     />
   </div>
+
+  const questionSpan = 
+    <span className='question-text'> {quizData[currentQuestion].questionText}</span>
+  
+    const questionSpan2 = 
+    <span className='question-text'> {quizData[currentQuestion].correctAnswer}</span>
+
+  const answerInput = 
+    <input
+    className='answer-section'
+      type='text'
+      value={userAnswer}
+      onChange={handleAnswerInput}
+      placeholder='Enter your answer'
+    />
+  
 
   // 添加键盘事件监听
   useEffect(() => {
@@ -146,10 +205,17 @@ const App = () => {
   };
 
   const toggleCollectSentence = () => {
-    const currentSentence = `${quizData[currentQuestion].questionText}, ${quizData[currentQuestion].correctAnswer}`;
+    const currentSentence = {
+      title: currentTitle,
+      content: `${quizData[currentQuestion].questionText}, ${quizData[currentQuestion].correctAnswer}`
+    };
+    
     const updatedCollectedSentences = [...collectedSentences];
     
-    const index = updatedCollectedSentences.indexOf(currentSentence);
+    const index = updatedCollectedSentences.findIndex(
+      item => item.title === currentSentence.title && item.content === currentSentence.content
+    );
+    
     if (index > -1) {
       updatedCollectedSentences.splice(index, 1);
     } else {
@@ -161,8 +227,10 @@ const App = () => {
   };
 
   const isSentenceCollected = () => {
-    const currentSentence = `${quizData[currentQuestion].questionText}, ${quizData[currentQuestion].correctAnswer}`;
-    return collectedSentences.includes(currentSentence);
+    return collectedSentences.some(
+      item => item.title === currentTitle && 
+      item.content === `${quizData[currentQuestion].questionText}, ${quizData[currentQuestion].correctAnswer}`
+    );
   };
 
   return (
@@ -172,7 +240,7 @@ const App = () => {
           <Tree 
           defaultExpandAll = {true}
           defaultSelectedKeys = {[9]}
-          treeData={treeData} onSelect={onSelect} />
+          treeData={combinedTreeData} onSelect={onSelect} />
         </Sider>
         <Content style={{ padding: '20px' }}>
           <h3>
@@ -208,22 +276,24 @@ const App = () => {
             <div className='question-answer-container'>
               {answerUp === 1 ? (
                 <>
-                  {qDiv}
-                  {aDiv}
+                  {questionSpan}
+                  <span style={{fontSize: '20px', margin : '8px'}}>,</span>
+                  {answerInput}
                 </>
               ) : (
                 <>
-                  {aDiv}
-                  {qDiv2}
+                  {answerInput}
+                  <span style={{fontSize: '20px', margin : '8px'}}>,</span>
+                  {questionSpan2}
                 </>
               )}
+            </div>
               <div className='feedback'>{feedback}</div>
               {showCorrectAnswer && (
                 <div className='correct-answer'>
                   Correct Answer: {quizData[currentQuestion].questionText},  {quizData[currentQuestion].correctAnswer}
                 </div>
               )}
-            </div>
           </>
 
 

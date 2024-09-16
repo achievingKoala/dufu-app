@@ -26,9 +26,9 @@
   font-size: 20px;
 }
 
-.answer-section input {
+.answer-section {
   padding: 10px;
-  font-size: 16px;
+  font-size: 20px;
   width: 200px;
   margin: 10px 0;
 }
@@ -45,14 +45,15 @@
 }
 
 .question-answer-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Adjust this value to control the space between sections */
+  /* display: flex; */
+  /* flex-direction: column; */
+  gap: 10px;
+   /* Adjust this value to control the space between sections */
 }
 
 .question-section, .answer-section {
-  margin: 0;
-  padding: 0;
+  margin: 10px;
+  padding: 10px;
 }
 
 ul {
