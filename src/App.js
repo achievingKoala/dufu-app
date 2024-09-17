@@ -24,7 +24,7 @@ const App = () => {
 
   const collectedTreeData = useMemo(() => {
     const collected = {
-      title: '收藏',
+      title: '收藏夹',
       key: 'collected',
       children: []
     };
