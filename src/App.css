@@ -3,9 +3,11 @@
 }
 
 .correct-answer {
+  height : 30px;
   font-size: 18px;
   color: blue;
-  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .app {

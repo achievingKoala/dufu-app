@@ -280,6 +280,13 @@ const App = () => {
             </Tooltip>
             
             <hr></hr>
+            {showCorrectAnswer ? (
+              <div className='correct-answer'>
+                Correct Answer: {quizData[currentQuestion].questionText},  {quizData[currentQuestion].correctAnswer}
+              </div>
+            ) : (
+              <div className='correct-answer'></div>
+            )}
             <div className='question-answer-container'>
               {answerUp === 1 ? (
                 <>
@@ -303,11 +310,7 @@ const App = () => {
             </Tooltip>
             </div>
             <div className='feedback'>{feedback}</div>
-            {showCorrectAnswer && (
-              <div className='correct-answer'>
-                Correct Answer: {quizData[currentQuestion].questionText},  {quizData[currentQuestion].correctAnswer}
-              </div>
-            )}
+  
           </>
 
 

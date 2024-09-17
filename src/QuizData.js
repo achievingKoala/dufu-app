@@ -16,6 +16,32 @@ const qiuxing5 = [
     correctAnswer: '秦中自古帝王州',
   },
 ];
+const qingming = [
+  {
+    questionText: '此身漂泊苦西东',
+    correctAnswer: '右臂偏枯半耳聋',
+  },
+  {
+    questionText: '寂寂系舟双下泪',
+    correctAnswer: '悠悠伏枕左书空',
+  },
+  {
+    questionText: '十年蹴鞠将雏远',
+    correctAnswer: '万里秋千习俗同',
+  },
+  {
+    questionText: '旅雁上云归紫塞',
+    correctAnswer: '家人钻火用青枫',
+  },
+  {
+    questionText: '秦城楼阁烟花里',
+    correctAnswer: '汉主山河锦绣中',
+  },
+  {
+    questionText: '春去春来洞庭阔',
+    correctAnswer: '白蘋愁杀白头翁',
+  }
+];
 const qiuxing4 = [
   {
     questionText: '闻道长安似弈棋',
@@ -476,6 +502,7 @@ const poemDic = {
   '丹青引赠曹将军霸': caoba,
   '夜宴左氏庄': yeyan,
   '登兖州城楼': yanzhou,
+  '清明': qingming,
 }
 
 export { QuizData, poemDic, PoemData3 };
