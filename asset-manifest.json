@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/dufu-app/static/css/main.4c33e4bb.css",
+    "main.js": "/dufu-app/static/js/main.4934d178.js",
+    "static/js/453.56966178.chunk.js": "/dufu-app/static/js/453.56966178.chunk.js",
+    "index.html": "/dufu-app/index.html",
+    "main.4c33e4bb.css.map": "/dufu-app/static/css/main.4c33e4bb.css.map",
+    "main.4934d178.js.map": "/dufu-app/static/js/main.4934d178.js.map",
+    "453.56966178.chunk.js.map": "/dufu-app/static/js/453.56966178.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4c33e4bb.css",
+    "static/js/main.4934d178.js"
+  ]
+}
