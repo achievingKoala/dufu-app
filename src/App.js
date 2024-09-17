@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './App.css';
-import { Button, Tree, Layout, Tooltip, Progress } from 'antd';
-import { StarOutlined, StarFilled, HeartOutlined, HeartFilled } from '@ant-design/icons';
+import { Button, Tree, Layout, Tooltip } from 'antd';
+import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 
-// import 'antd/dist/antd.css';
-
-import { QuizData, PoemData3, poemDic } from './QuizData';
+import { PoemData3, poemDic } from './QuizData';
 
 import treeData from './TreeData';
 import Sider from 'antd/es/layout/Sider';
