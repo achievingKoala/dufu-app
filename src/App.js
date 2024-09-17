@@ -263,7 +263,7 @@ const App = () => {
             </h3>
 
             <Button onClick={toggleRandom} style={{ margin: '0 10px' }}>
-              {!isRandom ? '只考下半句' : '随机上下句'}
+              {!isRandom ?  '随机上下句' : '只考下半句'}
             </Button>
             <Tooltip title="Shortcut: [" >
               <Button onClick={handleLastSentence} style={{ margin: '0 10px' }}>上一句</Button>
