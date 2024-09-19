@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './App.css';
-import { Button, Tree, Layout, Tooltip } from 'antd';
+import { Button, Tree, Layout, Tooltip, Card } from 'antd';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 
 import { PoemData3, poemDic } from './QuizData';
@@ -254,14 +254,41 @@ const App = () => {
             treeData={combinedTreeData} onSelect={onSelect} />
         </Sider>
         <Content style={{ padding: '20px' }}>
-          <h3>
-            {currentTitle}
-          </h3>
           <>
             <h3>
               {currentQuestion + 1}  / {quizData.length}
             </h3>
-
+            <Card title ={currentTitle}
+              style = {{margin : '10px 50px'}}
+              styles={{ header: { fontSize: '24px' } }}
+              actions={[
+                <Tooltip title={isSentenceCollected() ? "Remove sentence from collection" : "Add sentence to collection"}>
+                  <Button
+                    icon={isSentenceCollected() ? <HeartFilled /> : <HeartOutlined />}
+                    onClick={toggleCollectSentence}
+                    style={{ float: 'right', margin : '0px 10px' }} // 添加右对齐样式
+                  />
+                </Tooltip>
+              ]}
+            >
+              <div 
+                className='question-answer-container'>
+                {answerUp === 1 ? (
+                  <>
+                    {questionSpan}
+                    <span style={{ fontSize: '20px', margin: '8px' }}>,</span>
+                    {answerInput}
+                  </>
+                ) : (
+                  <>
+                    {answerInput}
+                    <span style={{ fontSize: '20px', margin: '8px' }}>,</span>
+                    {questionSpan2}
+                  </>
+                )}
+              </div>
+              <div className='feedback'>{feedback}</div>
+            </Card>
             <Button onClick={toggleRandom} style={{ margin: '0 10px' }}>
               {!isRandom ?  '随机上下句' : '只考下半句'}
             </Button>
@@ -277,37 +304,15 @@ const App = () => {
               </Button>
             </Tooltip>
             
-            <hr></hr>
             {showCorrectAnswer ? (
-              <div className='correct-answer'>
+              <div className='correct-answer' style = {{margin : '150px 0px'}}>
                 Correct Answer: {quizData[currentQuestion].questionText},  {quizData[currentQuestion].correctAnswer}
               </div>
             ) : (
               <div className='correct-answer'></div>
             )}
-            <div className='question-answer-container'>
-              {answerUp === 1 ? (
-                <>
-                  {questionSpan}
-                  <span style={{ fontSize: '20px', margin: '8px' }}>,</span>
-                  {answerInput}
-                </>
-              ) : (
-                <>
-                  {answerInput}
-                  <span style={{ fontSize: '20px', margin: '8px' }}>,</span>
-                  {questionSpan2}
-                </>
-              )}
-              <Tooltip title={isSentenceCollected() ? "Remove sentence from collection" : "Add sentence to collection"}>
-              <Button
-                icon={isSentenceCollected() ? <HeartFilled /> : <HeartOutlined />}
-                onClick={toggleCollectSentence}
-                style={{ marginLeft: '10px' }}
-              />
-            </Tooltip>
-            </div>
-            <div className='feedback'>{feedback}</div>
+            
+            
   
           </>
 

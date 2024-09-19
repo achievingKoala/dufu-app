@@ -16,6 +16,53 @@ const qiuxing5 = [
     correctAnswer: '秦中自古帝王州',
   },
 ];
+const yixi2 = [
+  {
+    questionText: '忆昔开元全盛日',
+    correctAnswer: '小邑犹藏万家室',
+  },
+  {
+    questionText: '稻米流脂粟米白',
+    correctAnswer: '公私仓廪俱丰实',
+  },
+  {
+    questionText: '九州道路无豺虎',
+    correctAnswer: '远行不劳吉日出',
+  },
+  {
+    questionText: '齐纨鲁缟车班班',
+    correctAnswer: '男耕女桑不相失',
+  },
+  {
+    questionText: '宫中圣人奏云门',
+    correctAnswer: '天下朋友皆胶漆',
+  },
+  {
+    questionText: '百馀年间未灾变',
+    correctAnswer: '叔孙礼乐萧何律',
+  },
+  {
+    questionText: '岂闻一绢直万钱',
+    correctAnswer: '有田种谷今流血',
+  },
+  {
+    questionText: '洛阳宫殿烧焚尽',
+    correctAnswer: '宗庙新除狐兔穴',
+  },
+  {
+    questionText: '伤心不忍问耆旧',
+    correctAnswer: '复恐初从乱离说',
+  },
+  {
+    questionText: '小臣鲁钝无所能',
+    correctAnswer: '朝廷记识蒙禄秩',
+  },
+  {
+    questionText: '周宣中兴望我皇',
+    correctAnswer: '洒血江汉身衰疾',
+  }
+];
+
 const qingming = [
   {
     questionText: '此身漂泊苦西东',
@@ -499,10 +546,12 @@ const poemDic = {
   '秋兴八首其二': qiuxing2,
   '秋兴八首其三': qiuxing3,
   '秋兴八首其四': qiuxing4,
+  '秋兴八首其五': qiuxing5,
   '丹青引赠曹将军霸': caoba,
   '夜宴左氏庄': yeyan,
   '登兖州城楼': yanzhou,
   '清明': qingming,
+  '忆昔其二': yixi2,
 }
 
 export { QuizData, poemDic, PoemData3 };
