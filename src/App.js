@@ -34,7 +34,6 @@ const App = () => {
         titleMap[sentence.title] = {
           label: sentence.title,
           key: `collected-${sentence.title}`,
-          children: [],
           fromCollect: true
         };
         collected.children.push(titleMap[sentence.title]);
@@ -162,11 +161,11 @@ const App = () => {
   }, [currentQuestion]);
 
   const onSelect = ( node) => {
-    node.title = node.key
+    node.title = node.key.replace('collected-','')
     if (node.title in poemDic) {
       console.log('Selected node title:', node.title);
-      console.log('Selected node title c:', node.fromCollect);
-      if (node.fromCollect) {
+      if (node.keyPath[1] == 'collected') {
+        console.log('Selected node title c:', node.fromCollect);
         const selectedPoemSentences = collectedSentences.filter(item => item.title === node.title);
         const formattedQuizData = selectedPoemSentences.map((sentence, index) => ({
           id: index,
@@ -258,9 +257,15 @@ const App = () => {
 
   return (
     <div className='app'>
-      <Header style={{ background: 'blue' }}>
-        <h2 style={{ marginTop: '0px', textAlign: 'left', fontFamily: 'SimSun', color: 'white' }}>杜甫诗歌助手</h2>
-      </Header>
+        <Header
+         style={{
+           display: 'flex',
+           alignItems: 'center',
+          }}
+        >
+          <h2 style={{  textAlign: 'left', fontFamily: 'SimSun', color: 'white' }}>杜甫诗歌助手</h2>
+          {/* <h2 style={{ marginTop: '0px', textAlign: 'left', fontFamily: 'SimSun', color: 'white' }}>杜甫诗歌助手</h2> */}
+        </Header>
       <Layout style={{ minHeight: '100vh' }}>
         <Sider style={{ background: '#fff' }}>
           <Menu
@@ -272,10 +277,8 @@ const App = () => {
         </Sider>
         <Content style={{ padding: '20px' }}>
           <>
-            <h3>
-              {currentQuestion + 1}  / {quizData.length}
-            </h3>
             <Card title ={currentTitle}
+              extra={<span>{currentQuestion + 1} / {quizData.length}</span>} // Moved question count to card extra
               style = {{margin : '10px 5%', maxWidth: '90%'}}
               styles={{ header: { fontSize: '24px' } }}
               actions={[
