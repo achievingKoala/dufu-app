@@ -298,6 +298,7 @@ const App = () => {
             <Tooltip title="Shortcut: ]">
               <Button onClick={handleNextSentence} style={{ margin: '0 10px' }} >下一句</Button>
             </Tooltip>
+            
             <Tooltip title="Shortcut: =">
               <Button onClick={toggleShowAnswer} style={{ margin: '0 10px' }}>
                 {showCorrectAnswer ? '隐藏答案' : '查看答案'}
