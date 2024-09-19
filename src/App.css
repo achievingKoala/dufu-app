@@ -66,3 +66,19 @@ ul {
 li {
   margin: 5px 0;
 }
+
+@media (max-width: 600px) {
+  .app {
+    padding: 10px; /* 增加内边距 */
+  }
+  .question-answer-container {
+    flex-direction: column; /* 垂直排列 */
+  }
+  .question-text, .answer-section {
+    font-size: 16px; /* 调整字体大小 */
+  }
+  .ant-btn {
+    width: 100%; /* 按钮全宽 */
+    margin: 5px 0; /* 增加按钮间距 */
+  }
+}

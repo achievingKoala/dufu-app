@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './App.css';
-import { Button, Tree, Layout, Tooltip, Card } from 'antd';
+import { Menu, Button, Tree, Layout, Tooltip, Card } from 'antd';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 
 import { PoemData3, poemDic } from './QuizData';
 
 import treeData from './TreeData';
 import Sider from 'antd/es/layout/Sider';
-import { Content } from 'antd/es/layout/layout';
+import { Content, Header } from 'antd/es/layout/layout';
 
 const App = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -22,7 +22,7 @@ const App = () => {
 
   const collectedTreeData = useMemo(() => {
     const collected = {
-      title: '收藏夹',
+      label: '收藏夹',
       key: 'collected',
       children: []
     };
@@ -32,7 +32,7 @@ const App = () => {
     collectedSentences.forEach((sentence, index) => {
       if (!titleMap[sentence.title]) {
         titleMap[sentence.title] = {
-          title: sentence.title,
+          label: sentence.title,
           key: `collected-${sentence.title}`,
           children: [],
           fromCollect: true
@@ -124,6 +124,7 @@ const App = () => {
       value={userAnswer}
       onChange={handleAnswerInput}
       placeholder='Enter your answer'
+      style={{ width: '100%', maxWidth: '300px' }} // 添加样式以适配手机屏幕
     />
 
 
@@ -160,7 +161,8 @@ const App = () => {
     };
   }, [currentQuestion]);
 
-  const onSelect = (selectedKeys, { node }) => {
+  const onSelect = ( node) => {
+    node.title = node.key
     if (node.title in poemDic) {
       console.log('Selected node title:', node.title);
       console.log('Selected node title c:', node.fromCollect);
@@ -244,14 +246,29 @@ const App = () => {
     );
   };
 
+  const buttonStyle = {
+    margin: '0 10px',
+    backgroundColor: '#4CAF50',
+    color: 'white',
+    borderRadius: '5px',
+    border: 'none',
+    padding: '10px 20px',
+    fontSize: '16px',
+  };
+
   return (
     <div className='app'>
+      <Header style={{ background: 'blue' }}>
+        <h2 style={{ marginTop: '0px', textAlign: 'left', fontFamily: 'SimSun', color: 'white' }}>杜甫诗歌助手</h2>
+      </Header>
       <Layout style={{ minHeight: '100vh' }}>
         <Sider style={{ background: '#fff' }}>
-          <Tree
-            defaultExpandAll={true}
+          <Menu
+            collapsible
+            mode="inline" 
             defaultSelectedKeys={[9]}
-            treeData={combinedTreeData} onSelect={onSelect} />
+            items={combinedTreeData} 
+            onClick={(node) => {onSelect(node)}} />
         </Sider>
         <Content style={{ padding: '20px' }}>
           <>
@@ -259,7 +276,7 @@ const App = () => {
               {currentQuestion + 1}  / {quizData.length}
             </h3>
             <Card title ={currentTitle}
-              style = {{margin : '10px 50px'}}
+              style = {{margin : '10px 5%', maxWidth: '90%'}}
               styles={{ header: { fontSize: '24px' } }}
               actions={[
                 <Tooltip title={isSentenceCollected() ? "Remove sentence from collection" : "Add sentence to collection"}>
@@ -276,31 +293,37 @@ const App = () => {
                 {answerUp === 1 ? (
                   <>
                     {questionSpan}
-                    <span style={{ fontSize: '20px', margin: '8px' }}>,</span>
+                    <br></br>
                     {answerInput}
                   </>
                 ) : (
                   <>
                     {answerInput}
-                    <span style={{ fontSize: '20px', margin: '8px' }}>,</span>
+                    <br></br>
                     {questionSpan2}
                   </>
                 )}
               </div>
               <div className='feedback'>{feedback}</div>
             </Card>
-            <Button onClick={toggleRandom} style={{ margin: '0 10px' }}>
+            <Button 
+              onClick={toggleRandom} 
+              style={buttonStyle} // 统一样式
+            >
               {!isRandom ?  '随机上下句' : '只考下半句'}
             </Button>
             <Tooltip title="Shortcut: [" >
-              <Button onClick={handleLastSentence} style={{ margin: '0 10px' }}>上一句</Button>
+              <Button onClick={handleLastSentence} style={buttonStyle}>上一句</Button>
             </Tooltip>
             <Tooltip title="Shortcut: ]">
-              <Button onClick={handleNextSentence} style={{ margin: '0 10px' }} >下一句</Button>
+              <Button onClick={handleNextSentence} style={buttonStyle}>下一句</Button>
             </Tooltip>
             
             <Tooltip title="Shortcut: =">
-              <Button onClick={toggleShowAnswer} style={{ margin: '0 10px' }}>
+              <Button 
+                onClick={toggleShowAnswer} 
+                style={{ ...buttonStyle, backgroundColor: '#007bff' }} // 统一样式，修改背景色
+              >
                 {showCorrectAnswer ? '隐藏答案' : '查看答案'}
               </Button>
             </Tooltip>
