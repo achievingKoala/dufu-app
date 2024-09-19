@@ -1,4 +1,4 @@
-const qiuxing5 = [
+const qiuxing6 = [
   {
     questionText: '瞿塘峡口曲江头',
     correctAnswer: '万里风烟接素秋',
@@ -546,7 +546,7 @@ const poemDic = {
   '秋兴八首其二': qiuxing2,
   '秋兴八首其三': qiuxing3,
   '秋兴八首其四': qiuxing4,
-  '秋兴八首其五': qiuxing5,
+  '秋兴八首其六': qiuxing6,
   '丹青引赠曹将军霸': caoba,
   '夜宴左氏庄': yeyan,
   '登兖州城楼': yanzhou,
