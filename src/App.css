@@ -2,12 +2,16 @@
   text-align: center;
 }
 
+:where(.css-dev-only-do-not-override-qnu6hi).ant-card .ant-card-actions>li:not(:last-child) {
+    border-inline-end: 0px solid white;
+}
 .correct-answer {
+  width: 130%;
   height : 30px;
   font-size: 18px;
   color: blue;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  /* margin-bottom: 15px; */
+  /* margin-top: 15px; */
 }
 
 .app {
@@ -29,16 +33,19 @@
 }
 
 .answer-section {
+  width: 100%;
   padding: 10px;
-  font-size: 20px;
+  font-size: 25px;
   width: 200px;
   margin: 10px 0;
+  text-align:center
 }
 
 .feedback {
+  height : 30px;
   font-size: 18px;
   color: green;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .score-section {

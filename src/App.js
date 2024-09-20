@@ -19,6 +19,7 @@ const App = () => {
   const [quizData, setQuizData] = useState(PoemData3);
   const [currentTitle, setCurrentTitle] = useState('兵车行');
   const [collectedSentences, setCollectedSentences] = useState([]);
+  const [collapsed, setCollapsed] = useState(false); // 添加状态以控制侧边栏的隐藏
 
   const collectedTreeData = useMemo(() => {
     const collected = {
@@ -246,7 +247,7 @@ const App = () => {
   };
 
   const buttonStyle = {
-    margin: '0 10px',
+    margin: '5px 10px',
     backgroundColor: '#4CAF50',
     color: 'white',
     borderRadius: '5px',
@@ -267,7 +268,7 @@ const App = () => {
           {/* <h2 style={{ marginTop: '0px', textAlign: 'left', fontFamily: 'SimSun', color: 'white' }}>杜甫诗歌助手</h2> */}
         </Header>
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider style={{ background: '#fff' }}>
+        <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed} style={{ background: '#fff' }}>
           <Menu
             collapsible
             mode="inline" 
@@ -277,11 +278,21 @@ const App = () => {
         </Sider>
         <Content style={{ padding: '20px' }}>
           <>
-            <Card title ={currentTitle}
+            <Card title={<div style={{ textAlign: 'left' }}>{currentTitle}</div>}
               extra={<span>{currentQuestion + 1} / {quizData.length}</span>} // Moved question count to card extra
               style = {{margin : '10px 5%', maxWidth: '90%'}}
               styles={{ header: { fontSize: '24px' } }}
               actions={[
+              <>
+              {showCorrectAnswer ? (
+                <div className='correct-answer' style = {{margin : '0px 0px'}}>
+                  {quizData[currentQuestion].questionText},  {quizData[currentQuestion].correctAnswer}
+                </div>
+              ) : (
+                <div className='correct-answer'></div>
+              )}
+              </>  ,
+            
                 <Tooltip title={isSentenceCollected() ? "Remove sentence from collection" : "Add sentence to collection"}>
                   <Button
                     icon={isSentenceCollected() ? <HeartFilled /> : <HeartOutlined />}
@@ -309,35 +320,34 @@ const App = () => {
               </div>
               <div className='feedback'>{feedback}</div>
             </Card>
-            <Button 
-              onClick={toggleRandom} 
-              style={buttonStyle} // 统一样式
-            >
-              {!isRandom ?  '随机上下句' : '只考下半句'}
-            </Button>
-            <Tooltip title="Shortcut: [" >
-              <Button onClick={handleLastSentence} style={buttonStyle}>上一句</Button>
-            </Tooltip>
-            <Tooltip title="Shortcut: ]">
-              <Button onClick={handleNextSentence} style={buttonStyle}>下一句</Button>
-            </Tooltip>
-            
-            <Tooltip title="Shortcut: =">
+            <Card 
+              style = {{margin : '10px 5%', maxWidth: '90%'}}
+            > 
+
               <Button 
-                onClick={toggleShowAnswer} 
-                style={{ ...buttonStyle, backgroundColor: '#007bff' }} // 统一样式，修改背景色
+                onClick={toggleRandom} 
+                style={buttonStyle} // 统一样式
               >
-                {showCorrectAnswer ? '隐藏答案' : '查看答案'}
+                {!isRandom ?  '随机上下句' : '只考下半句'}
               </Button>
-            </Tooltip>
+              <Tooltip title="Shortcut: [" >
+                <Button onClick={handleLastSentence} style={buttonStyle}>上一句</Button>
+              </Tooltip>
+              <Tooltip title="Shortcut: ]">
+                <Button onClick={handleNextSentence} style={buttonStyle}>下一句</Button>
+              </Tooltip>
+              
+              <Tooltip title="Shortcut: =">
+                <Button 
+                  onClick={toggleShowAnswer} 
+                  style={{ ...buttonStyle, backgroundColor: '#007bff' }} // 统一样式，修改背景色
+                >
+                  {showCorrectAnswer ? '隐藏答案' : '查看答案'}
+                </Button>
+              </Tooltip>
+              
+            </Card>
             
-            {showCorrectAnswer ? (
-              <div className='correct-answer' style = {{margin : '150px 0px'}}>
-                Correct Answer: {quizData[currentQuestion].questionText},  {quizData[currentQuestion].correctAnswer}
-              </div>
-            ) : (
-              <div className='correct-answer'></div>
-            )}
             
             
   
