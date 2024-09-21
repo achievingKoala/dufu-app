@@ -280,7 +280,7 @@ const App = () => {
           <>
             <Card title={<div style={{ textAlign: 'left' }}>{currentTitle}</div>}
               extra={<span>{currentQuestion + 1} / {quizData.length}</span>} // Moved question count to card extra
-              style = {{margin : '10px 5%', maxWidth: '90%'}}
+              style = {{margin : '3% 5%', maxWidth: '90%'}}
               styles={{ header: { fontSize: '24px' } }}
               actions={[
               <>
