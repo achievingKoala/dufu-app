@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dufu-app/static/css/main.fd64093d.css",
-    "main.js": "/dufu-app/static/js/main.fafd6cc3.js",
+    "main.js": "/dufu-app/static/js/main.c81cc8f4.js",
     "static/js/453.56966178.chunk.js": "/dufu-app/static/js/453.56966178.chunk.js",
     "index.html": "/dufu-app/index.html",
     "main.fd64093d.css.map": "/dufu-app/static/css/main.fd64093d.css.map",
-    "main.fafd6cc3.js.map": "/dufu-app/static/js/main.fafd6cc3.js.map",
+    "main.c81cc8f4.js.map": "/dufu-app/static/js/main.c81cc8f4.js.map",
     "453.56966178.chunk.js.map": "/dufu-app/static/js/453.56966178.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fd64093d.css",
-    "static/js/main.fafd6cc3.js"
+    "static/js/main.c81cc8f4.js"
   ]
 }
