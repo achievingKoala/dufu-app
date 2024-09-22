@@ -1,3 +1,22 @@
+const kuangfu = [
+  {
+    questionText: '万里桥西一草堂',
+    correctAnswer: '百花潭水即沧浪',
+  },
+  {
+    questionText: '风含翠筱娟娟净',
+    correctAnswer: '雨浥红蕖冉冉香',
+  },
+  {
+    questionText: '厚禄故人书断绝',
+    correctAnswer: '恒饥稚子色凄凉',
+  },
+  {
+    questionText: '欲填沟壑惟疏放',
+    correctAnswer: '自笑狂夫老更狂',
+  },
+];
+
 const qiuxing6 = [
   {
     questionText: '瞿塘峡口曲江头',
@@ -552,6 +571,7 @@ const poemDic = {
   '登兖州城楼': yanzhou,
   '清明': qingming,
   '忆昔其二': yixi2,
+  '狂夫': kuangfu,
 }
 
 export { QuizData, poemDic, PoemData3 };
