@@ -17,7 +17,7 @@ const App = () => {
   const [feedback, setFeedback] = useState('');
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false); // 用于显示正确答案
   const [quizData, setQuizData] = useState(PoemData3);
-  const [currentTitle, setCurrentTitle] = useState('兵车行');
+  const [currentTitle, setCurrentTitle] = useState('夜宴左氏庄');
   const [collectedSentences, setCollectedSentences] = useState([]);
   const [collapsed, setCollapsed] = useState(false); // 添加状态以控制侧边栏的隐藏
 
@@ -91,25 +91,6 @@ const App = () => {
     }
   };
 
-  const qDiv =
-    <div className='question-section'>
-      <div className='question-text'>{quizData[currentQuestion].questionText}</div>
-    </div>
-
-  const qDiv2 =
-    <div className='question-section'>
-      <div className='question-text'>{quizData[currentQuestion].correctAnswer}</div>
-    </div>
-
-  const aDiv =
-    <div className='answer-section'>
-      <input
-        type='text'
-        value={userAnswer}
-        onChange={handleAnswerInput}
-        placeholder='Enter your answer'
-      />
-    </div>
 
   const questionSpan =
     <span className='question-text'> {quizData[currentQuestion].questionText}</span>
@@ -151,6 +132,12 @@ const App = () => {
         setUserAnswer('');
         setShowCorrectAnswer(false);
         setCurrentQuestion(currentQuestion === 0 ? quizData.length - 1 : currentQuestion - 1);
+      }
+      if (event.key === '}') { // Add shortcut for next poem
+        handleNextPoem();
+      }
+      if (event.key =='{') {
+        handlePreviousPoem();
       }
     };
 
@@ -211,6 +198,35 @@ const App = () => {
     setUserAnswer('');
     setShowCorrectAnswer(false);
     setCurrentQuestion(currentQuestion === quizData.length - 1 ? 0 : currentQuestion + 1);
+  };
+
+  const handlePreviousPoem = () => {
+    // Logic to go to the previous poem
+    const currentIndex = Object.keys(poemDic).findIndex(key => key === currentTitle);
+    const previousIndex = (currentIndex === 0) ? Object.keys(poemDic).length - 1 : currentIndex - 1;
+    const preTitle = Object.keys(poemDic)[previousIndex];
+    const previousPoem = poemDic[preTitle];
+    setCurrentTitle(preTitle);
+    setQuizData(previousPoem); // Assuming each poem has a 'data' property
+    setCurrentQuestion(0);
+    setUserAnswer('');
+    setFeedback('');
+    setShowCorrectAnswer(false);
+  };
+
+  const handleNextPoem = () => {
+    // Logic to go to the next poem
+
+    const currentIndex = Object.keys(poemDic).findIndex(key => key === currentTitle);
+    const nextIndex = (currentIndex === Object.keys(poemDic).length - 1) ? 0 : currentIndex + 1;
+    const nextTitle = Object.keys(poemDic)[nextIndex]
+    const nextPoem = poemDic[nextTitle];
+    setCurrentTitle(nextTitle);
+    setQuizData(nextPoem); // Assuming each poem has a 'data' property
+    setCurrentQuestion(0);
+    setUserAnswer('');
+    setFeedback('');
+    setShowCorrectAnswer(false);
   };
 
   const toggleShowAnswer = () => {
@@ -335,6 +351,13 @@ const App = () => {
               </Tooltip>
               <Tooltip title="Shortcut: ]">
                 <Button onClick={handleNextSentence} style={buttonStyle}>下一句</Button>
+              </Tooltip>
+              
+              <Tooltip title="Previous Poem">
+                <Button onClick={handlePreviousPoem} style={buttonStyle}>上一首</Button> {/* 新增按钮 */}
+              </Tooltip>
+              <Tooltip title="Shortcut: }">
+                <Button onClick={handleNextPoem} style={buttonStyle}>下一首</Button> {/* 新增按钮 */}
               </Tooltip>
               
               <Tooltip title="Shortcut: =">
