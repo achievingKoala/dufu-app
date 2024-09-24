@@ -1,8 +1,13 @@
+import {
+  FileOutlined,
+} from '@ant-design/icons';
+
 const treeData = [
   {
     no: 1,
     key: '读书游历时期',
     label: '读书游历时期',
+    icon: <FileOutlined />,
     children: [
       {
         no: 5,
@@ -20,6 +25,7 @@ const treeData = [
     no: 113,
     key: '困守长安时期',
     label: '困守长安时期',
+    icon: <FileOutlined />,
     children: [
       { no: 9, key: '兵车行', label: '兵车行' },
       { no: 1131, key: '丽人行', label: '丽人行' },
@@ -30,6 +36,7 @@ const treeData = [
     no: 112,
     key: '安史之乱时期',
     label: '安史之乱时期',
+    icon: <FileOutlined />,
     children: [
       { no: 1121, key: '月夜', label: '月夜' },
       { no: 8, key: '哀江头', label: '哀江头' },
@@ -39,6 +46,7 @@ const treeData = [
     no: 6,
     key: '漂泊西南时期',
     label: '漂泊西南时期',
+    icon: <FileOutlined />,
     children: [
       { no: 10, key: '秋兴八首其二', label: '秋兴八首其二' },
       { no: 7, key: '秋兴八首其三', label: '秋兴八首其三' },
