@@ -79,6 +79,7 @@ const App = () => {
     if (answerUp === 0) {
       if (input === quizData[currentQuestion].questionText) {
         setFeedback('Correct!');
+        playCorrectSound();
       } else {
         setFeedback(''); // 当答案不正确时清除反馈
       }
@@ -86,6 +87,7 @@ const App = () => {
     }
     if (input === quizData[currentQuestion].correctAnswer) {
       setFeedback('Correct!');
+      playCorrectSound();
     } else {
       setFeedback('');
     }
@@ -109,6 +111,35 @@ const App = () => {
     />
 
 
+  // 语音朗读功能
+  const speakAnswer = () => {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(quizData[currentQuestion].correctAnswer);
+      utterance.lang = 'zh-CN';
+      speechSynthesis.speak(utterance);
+    }
+  };
+
+  // 正确音效
+  const playCorrectSound = () => {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+    oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+    oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+    
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.3);
+  };
+
   // 添加键盘事件监听
   useEffect(() => {
     // console.log('current change:' + currentQuestion);
@@ -118,25 +149,28 @@ const App = () => {
         setShowCorrectAnswer(prevState => !prevState);
         // console.log(showCorrectAnswer)
       }
-      if (event.key === ']') {
+      if (event.key === '、') {
+        event.preventDefault(); // 阻止默认行为
+        speakAnswer();
+      }
+      if (event.key === '】') {
         logRandomBinary()
         setFeedback('');
         setUserAnswer('');
         setShowCorrectAnswer(false);
         setCurrentQuestion(currentQuestion == quizData.length - 1 ? 0 : currentQuestion + 1);
       }
-      if (event.key === '[') {
+      if (event.key === '【') {
         logRandomBinary()
-
         setFeedback('');
         setUserAnswer('');
         setShowCorrectAnswer(false);
         setCurrentQuestion(currentQuestion === 0 ? quizData.length - 1 : currentQuestion - 1);
       }
-      if (event.key === '}') { // Add shortcut for next poem
+      if (event.key === '》') { // Add shortcut for next poem
         handleNextPoem();
       }
-      if (event.key =='{') {
+      if (event.key =='《') {
         handlePreviousPoem();
       }
     };
@@ -146,7 +180,7 @@ const App = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [currentQuestion]);
+  }, [currentQuestion, quizData, answerUp]);
 
   const onSelect = ( node) => {
     node.title = node.key.replace('collected-','')
@@ -346,26 +380,35 @@ const App = () => {
               >
                 {!isRandom ?  '随机上下句' : '只考下半句'}
               </Button>
-              <Tooltip title="Shortcut: [" >
+              <Tooltip title="快捷键: 【" >
                 <Button onClick={handleLastSentence} style={buttonStyle}>上一句</Button>
               </Tooltip>
-              <Tooltip title="Shortcut: ]">
+              <Tooltip title="快捷键: 】">
                 <Button onClick={handleNextSentence} style={buttonStyle}>下一句</Button>
               </Tooltip>
               
-              <Tooltip title="Previous Poem">
+              <Tooltip title="快捷键: 《">
                 <Button onClick={handlePreviousPoem} style={buttonStyle}>上一首</Button> {/* 新增按钮 */}
               </Tooltip>
-              <Tooltip title="Shortcut: }">
+              <Tooltip title="快捷键: 》">
                 <Button onClick={handleNextPoem} style={buttonStyle}>下一首</Button> {/* 新增按钮 */}
               </Tooltip>
               
-              <Tooltip title="Shortcut: =">
+              <Tooltip title="快捷键: =">
                 <Button 
                   onClick={toggleShowAnswer} 
                   style={{ ...buttonStyle, backgroundColor: '#007bff' }} // 统一样式，修改背景色
                 >
                   {showCorrectAnswer ? '隐藏答案' : '查看答案'}
+                </Button>
+              </Tooltip>
+              
+              <Tooltip title="快捷键: 、">
+                <Button 
+                  onClick={speakAnswer} 
+                  style={{ ...buttonStyle, backgroundColor: '#ff6b35' }}
+                >
+                  朗读答案
                 </Button>
               </Tooltip>
               
