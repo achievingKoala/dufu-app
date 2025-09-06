@@ -114,7 +114,10 @@ const App = () => {
   // 语音朗读功能
   const speakAnswer = () => {
     if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(quizData[currentQuestion].correctAnswer);
+      const textToSpeak = answerUp === 0 
+        ? quizData[currentQuestion].questionText 
+        : quizData[currentQuestion].correctAnswer;
+      const utterance = new SpeechSynthesisUtterance(textToSpeak);
       utterance.lang = 'zh-CN';
       speechSynthesis.speak(utterance);
     }
