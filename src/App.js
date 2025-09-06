@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './App.css';
-import { Menu, Button, Tree, Layout, Tooltip, Card } from 'antd';
+import { Menu, Button, Tree, Layout, Tooltip, Card, Switch } from 'antd';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 
 import { PoemData3, poemDic } from './QuizData';
@@ -377,12 +377,15 @@ const App = () => {
               style = {{margin : '10px 5%', maxWidth: '90%'}}
             > 
 
-              <Button 
-                onClick={toggleRandom} 
-                style={buttonStyle} // 统一样式
-              >
-                {!isRandom ?  '随机上下句' : '只考下半句'}
-              </Button>
+              <span style={{ display: 'inline-flex', alignItems: 'center', margin: '5px 10px' }}>
+                <span style={{ marginRight: '8px' }}>随机上下句:</span>
+                <Switch 
+                  checked={isRandom}
+                  onChange={toggleRandom}
+                  checkedChildren="开"
+                  unCheckedChildren="关"
+                />
+              </span>
               <Tooltip title="快捷键: 【" >
                 <Button onClick={handleLastSentence} style={buttonStyle}>上一句</Button>
               </Tooltip>
