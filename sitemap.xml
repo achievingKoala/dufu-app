@@ -6,13 +6,18 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://achievingKoala.github.io/dufu-app/poems/chunwang-dufu/</loc>
+    <loc>https://achievingKoala.github.io/dufu-app/poems/denggao-dufu/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://achievingKoala.github.io/dufu-app/poems/denggao-dufu/</loc>
+    <loc>https://achievingKoala.github.io/dufu-app/poems/qiangjinjiu-libai/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://achievingKoala.github.io/dufu-app/poems/qiangjinjiu-libai/test.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

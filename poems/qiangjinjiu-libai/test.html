@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>《将进酒》知识测验 · 李白｜轻量互动页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Open Graph for link cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="《将进酒》知识测验：测试你对李白这首诗的了解">
+  <meta property="og:description" content="5道选择题，测试你对《将进酒》的理解程度。">
+  <meta property="og:image" content="https://achievingkoala.github.io/dufu-app/og/og-qiangjinjiu.jpg">
+  <meta property="og:url" content="https://achievingkoala.github.io/dufu-app/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="《将进酒》知识测验：测试你对李白这首诗的了解">
+  <meta name="twitter:description" content="5道选择题，测试你对《将进酒》的理解程度。">
+  <meta name="twitter:image" content="https://achievingkoala.github.io/dufu-app/og/og-qiangjinjiu.jpg">
+
+  <style>
+    :root { --bg:#fafafa; --fg:#111; --muted:#666; --brand:#2563eb; --hl:#fff7d6; }
+    html,body { margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif; background:var(--bg); color:var(--fg); }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 20px 16px 80px; }
+    h1 { font-size: 22px; margin: 8px 0 4px; }
+    .sub { color:var(--muted); font-size: 14px; margin-bottom: 16px; }
+    .card { background:white; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,.06); padding: 16px; }
+    ol { list-style: none; padding: 0; margin: 0; }
+    .question { margin-bottom: 24px; }
+    .q-title { font-weight: 600; margin-bottom: 12px; }
+    .options { list-style: none; padding: 0; margin: 0; }
+    .option { padding: 10px 12px; border-radius: 10px; cursor: pointer; line-height: 1.6; transition: all .2s; border: 1px solid #eee; margin-bottom: 8px; }
+    .option:hover { background: #f4f6ff; border-color: var(--brand); }
+    .option.selected { background: var(--hl); border-color: var(--brand); }
+    .option.correct { background: #dcfce7; border-color: #16a34a; }
+    .option.wrong { background: #fecaca; border-color: #dc2626; }
+    .fill-blank { display: inline-block; border-bottom: 2px solid #2563eb; min-width: 80px; padding: 2px 8px; margin: 0 4px; font-weight: 600; }
+    .fill-input { border: 1px solid #ddd; border-radius: 6px; padding: 6px 10px; margin: 0 4px; min-width: 100px; }
+    .fill-input.correct { background: #dcfce7; border-color: #16a34a; }
+    .fill-input.wrong { background: #fecaca; border-color: #dc2626; }
+    .answer-text { color: #dc2626; font-size: 14px; margin-left: 8px; font-weight: 600; }
+    .result { margin-top: 16px; padding: 12px; border-radius: 10px; font-weight: 600; }
+    .result.good { background: #dcfce7; color: #16a34a; }
+    .result.ok { background: #fef3c7; color: #d97706; }
+    .result.bad { background: #fecaca; color: #dc2626; }
+    .tools { display:flex; flex-wrap: wrap; gap:8px; margin-top: 14px; }
+    button, .ghost { border: 1px solid #dcdcdc; background:white; padding:10px 12px; border-radius: 10px; font-size:14px; cursor:pointer; }
+    button.primary { background: var(--brand); border-color: var(--brand); color:white; }
+    .ghost { color: var(--muted); text-decoration: none; }
+    .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .badge { font-size:12px; color:#fff; background: var(--brand); border-radius: 999px; padding: 2px 8px; }
+    .qr-wrap { display:none; margin-top: 12px; text-align:center; }
+    #qrCanvas { background:white; padding:10px; border-radius:12px; display:inline-block; }
+    .tip { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .footer { margin-top: 14px; font-size: 12px; color: var(--muted); text-align:center; }
+    .sep { height:1px; background:#eee; margin:16px 0; }
+    .cta { display: inline-block; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--brand); color: var(--brand); text-decoration: none; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="row">
+      <div class="badge">知识测验 · Demo</div>
+    </div>
+    <h1>《将进酒》知识测验</h1>
+    <div class="sub">8道题目（选择题+填空题），测试你对李白这首诗的了解程度。</div>    
+    <div class="card">
+      <div class="question">
+        <div class="q-title">1. "天生我材必有用"的下一句是？</div>
+        <ul class="options" data-answer="1">
+          <li class="option" data-value="0">A. 莫使金樽空对月</li>
+          <li class="option" data-value="1">B. 千金散尽还复来</li>
+          <li class="option" data-value="2">C. 会须一饮三百杯</li>
+          <li class="option" data-value="3">D. 但愿长醉不复醒</li>
+        </ul>
+      </div>
+
+      <div class="question">
+        <div class="q-title">2. 诗中提到的"岑夫子、丹丘生"是指？</div>
+        <ul class="options" data-answer="2">
+          <li class="option" data-value="0">A. 李白的兄弟</li>
+          <li class="option" data-value="1">B. 古代名人</li>
+          <li class="option" data-value="2">C. 李白的朋友</li>
+          <li class="option" data-value="3">D. 酒店老板</li>
+        </ul>
+      </div>
+
+      <div class="question">
+        <div class="q-title">3. "古来圣贤皆寂寞"的下一句是？</div>
+        <ul class="options" data-answer="0">
+          <li class="option" data-value="0">A. 惟有饮者留其名</li>
+          <li class="option" data-value="1">B. 钟鼓馔玉不足贵</li>
+          <li class="option" data-value="2">C. 奔流到海不复回</li>
+          <li class="option" data-value="3">D. 朝如青丝暮成雪</li>
+        </ul>
+      </div>
+
+      <div class="question">
+        <div class="q-title">4. 诗中提到的"陈王"指的是？</div>
+        <ul class="options" data-answer="1">
+          <li class="option" data-value="0">A. 陈胜</li>
+          <li class="option" data-value="1">B. 曹植</li>
+          <li class="option" data-value="2">C. 陈后主</li>
+          <li class="option" data-value="3">D. 陈涉</li>
+        </ul>
+      </div>
+
+      <div class="question">
+        <div class="q-title">5. 《将进酒》属于什么体裁？</div>
+        <ul class="options" data-answer="1">
+          <li class="option" data-value="0">A. 七言律诗</li>
+          <li class="option" data-value="1">B. 乐府歌行</li>
+          <li class="option" data-value="2">C. 五言古诗</li>
+          <li class="option" data-value="3">D. 词</li>
+        </ul>
+      </div>
+
+      <div class="question">
+        <div class="q-title">6. 填空：烹羊宰牛且为乐，<input class="fill-input" data-answer="会须一饮三百杯" placeholder="请填入下句"></div>
+      </div>
+
+      <div class="question">
+        <div class="q-title">7. 填空：钟鼓馔玉不足贵，<input class="fill-input" data-answer="但愿长醉不复醒" placeholder="请填入下句"></div>
+      </div>
+
+      <div class="question">
+        <div class="q-title">8. 填空：五花马，千金裘，呼儿将出换美酒，<input class="fill-input" data-answer="与尔同销万古愁" placeholder="请填入下句"></div>
+      </div>
+
+      <div class="tools">
+        <button id="submitBtn" class="primary">提交答案</button>
+        <button id="resetBtn">重新开始</button>
+        <button id="copyBtn">复制链接</button>
+        <button id="qrBtn">生成二维码</button>
+        <a class="cta" href="index.html">阅读《将进酒》原文</a>
+    <a class="cta" href="/dufu-app/dufu/denggao/">这首诗的更多测验</a>
+      </div>
+
+      <div class="qr-wrap" id="qrWrap">
+        <div id="qrCanvas"></div>
+        <div class="tip">扫码分享给朋友，让他们也来测试《将进酒》知识。</div>
+      </div>
+
+      <div id="result" class="result" style="display:none;"></div>
+    </div>
+
+    <div class="footer">© dufu-app · 轻量互动页面 · GitHub Pages</div>
+  </div>
+
+  <!-- 轻量二维码生成（无依赖版） -->
+  <script>
+    // 极简 QR：使用 canvas 绘制第三方-free的小型实现（这里用占位：不依赖网络）
+    // 为了保持零依赖，这里用动态插入 SVG 的方式调用一个很小的二维码实现。
+    // 简化：我们通过 Google Charts QR 作为兜底（若平台屏蔽，可改自带库）。
+    function renderQR(el, text, size=200) {
+      // 使用 qr-server.com API 生成二维码
+      const url = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=` + encodeURIComponent(text);
+      el.innerHTML = ""; 
+      const img = new Image();
+      img.src = url;
+      img.alt = "QR Code";
+      img.width = size; 
+      img.height = size;
+      el.appendChild(img);
+    }
+  </script>
+
+  <script>
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const qrBtn = document.getElementById('qrBtn');
+    const qrWrap = document.getElementById('qrWrap');
+    const qrCanvas = document.getElementById('qrCanvas');
+    const result = document.getElementById('result');
+    let submitted = false;
+
+    // 选项点击事件
+    document.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('option') || submitted) return;
+      
+      const options = e.target.parentElement;
+      options.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+      e.target.classList.add('selected');
+    });
+
+    // 提交答案
+    submitBtn.addEventListener('click', () => {
+      if (submitted) return;
+      
+      const optionQuestions = document.querySelectorAll('.options');
+      const fillInputs = document.querySelectorAll('.fill-input');
+      let score = 0;
+      let totalQuestions = optionQuestions.length + fillInputs.length;
+      
+      // 检查选择题
+      optionQuestions.forEach(q => {
+        const selected = q.querySelector('.option.selected');
+        const correctAnswer = parseInt(q.dataset.answer);
+        
+        if (selected) {
+          const selectedValue = parseInt(selected.dataset.value);
+          
+          // 显示正确答案
+          q.querySelectorAll('.option').forEach((opt, idx) => {
+            if (idx === correctAnswer) {
+              opt.classList.add('correct');
+            } else if (opt.classList.contains('selected') && idx !== correctAnswer) {
+              opt.classList.add('wrong');
+            }
+          });
+          
+          if (selectedValue === correctAnswer) {
+            score++;
+          }
+        } else {
+          // 未选择，只显示正确答案
+          q.querySelectorAll('.option').forEach((opt, idx) => {
+            if (idx === correctAnswer) {
+              opt.classList.add('correct');
+            }
+          });
+        }
+      });
+      
+      // 检查填空题
+      fillInputs.forEach(input => {
+        const userAnswer = input.value.trim();
+        const correctAnswer = input.dataset.answer;
+        
+        if (userAnswer === correctAnswer) {
+          input.classList.add('correct');
+          score++;
+        } else {
+          input.classList.add('wrong');
+          // 在输入框后面显示正确答案
+          const answerSpan = document.createElement('span');
+          answerSpan.className = 'answer-text';
+          answerSpan.textContent = `正确答案：${correctAnswer}`;
+          input.parentNode.appendChild(answerSpan);
+        }
+        input.disabled = true;
+      });
+      
+      // 显示结果
+      let resultText = `答对 ${score}/${totalQuestions} 题`;
+      let resultClass = 'bad';
+      
+      if (score === totalQuestions) {
+        resultText += ' 🎉 全对！你对《将进酒》很了解！';
+        resultClass = 'good';
+      } else if (score >= totalQuestions * 0.6) {
+        resultText += ' 👍 不错的成绩！';
+        resultClass = 'ok';
+      } else {
+        resultText += ' 📚 建议再读读这首诗哦~';
+      }
+      
+      result.textContent = resultText;
+      result.className = `result ${resultClass}`;
+      result.style.display = 'block';
+      
+      submitted = true;
+      submitBtn.textContent = '已提交';
+      submitBtn.disabled = true;
+    });
+
+    // 复制链接
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(location.href);
+        copyBtn.textContent = '已复制 ✅';
+        setTimeout(() => copyBtn.textContent = '复制链接', 1500);
+      } catch (err) {
+        // 备用方案：选中文本
+        const textArea = document.createElement('textarea');
+        textArea.value = location.href;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        copyBtn.textContent = '已复制 ✅';
+        setTimeout(() => copyBtn.textContent = '复制链接', 1500);
+      }
+    });
+
+    // 生成二维码
+    qrBtn.addEventListener('click', () => {
+      qrWrap.style.display = 'block';
+      renderQR(qrCanvas, location.href, 200);
+      qrBtn.textContent = '已生成 ✅';
+      setTimeout(() => qrBtn.textContent = '生成二维码', 1500);
+    });
+
+    // 重新开始
+    resetBtn.addEventListener('click', () => {
+      document.querySelectorAll('.option').forEach(opt => {
+        opt.classList.remove('selected', 'correct', 'wrong');
+      });
+      document.querySelectorAll('.fill-input').forEach(input => {
+        input.classList.remove('correct', 'wrong');
+        input.value = '';
+        input.disabled = false;
+        // 移除答案显示
+        const answerText = input.parentNode.querySelector('.answer-text');
+        if (answerText) {
+          answerText.remove();
+        }
+      });
+      result.style.display = 'none';
+      qrWrap.style.display = 'none';
+      submitted = false;
+      submitBtn.textContent = '提交答案';
+      submitBtn.disabled = false;
+    });
+  </script>
+</body>
+</html>
